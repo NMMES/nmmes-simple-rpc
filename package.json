@@ -1,0 +1,14 @@
+{
+    "name": "nmmes-simple-rpc",
+    "version": "0.0.1",
+    "description": "A stupid simple websocket based rpc server and client.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Ayrton Sparling <ayrton@sparling.us>",
+    "license": "MIT",
+    "dependencies": {
+        "ws": "^5.1.1"
+    }
+}
