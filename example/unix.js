@@ -25,7 +25,7 @@ httpServer.listen(sockPath, () => {
     const client = new RPC.Client(socket);
 
     client.register('connection.ping', () => {
-        return true;
+        return 'Yes?';
     });
 
     client.on('open', async () => {
@@ -40,5 +40,10 @@ httpServer.listen(sockPath, () => {
 
         await client.unsubscribe('user.friend.login');
         server.publish('user.friend.login', ['Dave']);
+
+        for (let client of server.clients) {
+            console.log('Pinging:', await client.call('connection.ping'));
+        }
+
     });
 });
