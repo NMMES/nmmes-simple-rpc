@@ -28,6 +28,12 @@ httpServer.listen(sockPath, () => {
         return 'Yes?';
     });
 
+    client.register('test.timeout', async () => {
+        await sleep(12000);
+        console.log('responding to test.timeout request');
+        return 'did this timeout?';
+    });
+
     client.on('open', async () => {
         console.log('Connected!');
         console.log('1 + 2 =', await client.call('math.addition.2', [1, 2]));
@@ -43,7 +49,17 @@ httpServer.listen(sockPath, () => {
 
         for (let client of server.clients) {
             console.log('Pinging:', await client.call('connection.ping'));
+            try {
+                console.log('testing timeout...');
+                console.log('timeout response:', await client.call('test.timeout'));
+            } catch (e) {
+                console.error(e);
+            }
         }
 
     });
 });
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
