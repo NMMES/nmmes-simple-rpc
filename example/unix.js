@@ -37,7 +37,7 @@ httpServer.listen(sockPath, () => {
     client.on('open', async () => {
         console.log('Connected!');
         console.log('1 + 2 =', await client.call('math.addition.2', [1, 2]));
-        console.log('Uploading image:', await client.call('user.image.upload', ['myavatar', Buffer.allocUnsafe(10)]));
+        console.log('Uploaded image:', await client.call('user.image.upload', ['myavatar', Buffer.allocUnsafe(10)]));
 
         await client.subscribe('user.friend.login', friend => {
             console.log(`My friend ${friend} has logged in!`);
@@ -48,7 +48,7 @@ httpServer.listen(sockPath, () => {
         server.publish('user.friend.login', ['Dave']);
 
         for (let client of server.clients) {
-            console.log('Pinging:', await client.call('connection.ping'));
+            console.log('Pinged from server. Client response:', await client.call('connection.ping'));
             try {
                 console.log('testing timeout...');
                 console.log('timeout response:', await client.call('test.timeout'));
