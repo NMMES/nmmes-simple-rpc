@@ -13,6 +13,8 @@
     "author": "Ayrton Sparling <ayrton@sparling.us>",
     "license": "MIT",
     "dependencies": {
+        "es6-promisify": "^6.0.0",
+        "isomorphic-ws": "^4.0.0",
         "ws": "^5.1.1"
     }
 }
