@@ -57,6 +57,9 @@ httpServer.listen(sockPath, () => {
             }
         }
 
+        client.close();
+        server.close();
+        httpServer.close();
     });
 });
 
