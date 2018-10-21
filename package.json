@@ -13,8 +13,12 @@
     "author": "Ayrton Sparling <ayrton@sparling.us>",
     "license": "MIT",
     "dependencies": {
+        "back": "^1.0.2",
         "es6-promisify": "^6.0.0",
-        "isomorphic-ws": "^4.0.0",
         "ws": "^5.1.1"
+    },
+    "browser": {
+        "ws": false,
+        "index.js": "./lib/client.js"
     }
 }
