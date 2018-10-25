@@ -1,6 +1,6 @@
 {
     "name": "nmmes-simple-rpc",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "A stupid simple websocket based rpc server and client.",
     "main": "index.js",
     "repository": {
